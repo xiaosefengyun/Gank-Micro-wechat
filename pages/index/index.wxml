@@ -1,10 +1,13 @@
-<!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view>
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+  <view class="card" wx:for="{{items}}">
+    <view bindtab="onItemClick">
+      <image class="image" mode="aspectFill" src="{{item.src}}"></image>
+      <text class="time">{{item.time}}</text>
+      <view class="title">{{item.title}}</view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <icon class="post" type="success" size="50"></icon>
 </view>
